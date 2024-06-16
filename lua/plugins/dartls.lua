@@ -1,9 +1,25 @@
+local path = require("utils.path")
+local utils = require("utils.utils")
+
 return {
   {
     "neovim/nvim-lspconfig",
     opts = function()
+      local flutter_sdk_path = utils.flutter_sdk_path()
+      vim.notify(flutter_sdk_path)
       require("lspconfig").dartls.setup({
         cmd = { "dart", "language-server", "--protocol=lsp" },
+        settings = {
+          dart = {
+            completeFunctionCalls = true,
+            showTodos = true,
+            analysisExcludedFolders = {
+              path.join(flutter_sdk_path, "..", "packages"),
+              path.join(utils.home_path, ".pub-cache"),
+            },
+            updateImportsOnRename = true,
+          },
+        },
       })
     end,
   },
