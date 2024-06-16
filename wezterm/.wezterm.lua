@@ -21,7 +21,7 @@ config.window_close_confirmation = "NeverPrompt"
 
 config.tab_bar_at_bottom = true
 
-config.font_size = 13
+config.font_size = 14.5
 
 config.use_fancy_tab_bar = true
 
@@ -130,6 +130,34 @@ config.keys = {
 	bind_super_key_to_vim("s"),
 	bind_super_key_to_vim("b"),
 	bind_super_key_to_vim("/"),
+	-- toggles a vertical terminal
+	{
+		key = "F12",
+		action = wezterm.action_callback(function(_, pane)
+			local tab = pane:tab()
+			local panes = tab:panes_with_info()
+			if #panes == 1 then
+				pane:split({
+					direction = "Bottom",
+					size = 0.3,
+				})
+			elseif not panes[1].is_zoomed then
+				panes[1].pane:activate()
+				tab:set_zoomed(true)
+			elseif panes[1].is_zoomed then
+				tab:set_zoomed(false)
+				panes[2].pane:activate()
+			end
+		end),
+	},
+	-- enter backtick with Option + `
+	{
+		key = "`",
+		mods = "OPT",
+		action = wezterm.action_callback(function(_, pane)
+			pane:send_text("`")
+		end),
+	},
 }
 
 -- Return the Tab's current working directory
