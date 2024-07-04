@@ -6,11 +6,10 @@
   "contributes": {
     "snippets": [
       {
-        "language": "flutter",
-        "path": "./flutter.json"
-      },
-      {
-        "language": "dart",
+        "language": [
+          "flutter",
+          "dart"
+        ],
         "path": "./flutter.json"
       }
     ]
