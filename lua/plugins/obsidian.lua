@@ -13,7 +13,7 @@ return {
       "ObsidianQuickSwitch",
     },
     keys = {
-      { "<leader>fo", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian" },
+      { "<leader>fo", "<cmd>ObsidianQuickSwitch<cr>", desc = "Search Obsidian" },
       { "<C-c>", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Toggle obsidian checkbox" },
     },
     ft = "markdown",
