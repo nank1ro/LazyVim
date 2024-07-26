@@ -13,10 +13,8 @@ return {
             completeFunctionCalls = true,
             showTodos = true,
             analysisExcludedFolders = {
-              path.join(flutter_sdk_path, "..", "packages"),
-              path.join(utils.home_path, ".pub-cache"),
-              "~/fvm/versions/stable/packages",
-              "~/fvm/default/flutter/packages",
+              path.join(flutter_sdk_path, "packages"),
+              path.join(flutter_sdk_path, ".pub-cache"),
             },
             updateImportsOnRename = true,
           },
@@ -29,6 +27,9 @@ return {
     dependencies = "williamboman/mason.nvim",
     opts = function()
       local dap = require("dap")
+      local flutter_sdk = utils.flutter_sdk_path()
+      local flutter_sdk_path = path.join(flutter_sdk, "bin/flutter")
+      local dask_sdk_path = path.join(flutter_sdk, "bin/cache/dart-sdk/bin")
 
       dap.adapters.dart = {
         type = "executable",
@@ -45,8 +46,8 @@ return {
           type = "dart",
           request = "launch",
           name = "Launch dart",
-          dartSdkPath = "/Users/ale/fvm/versions/stable/bin/cache/dart-sdk/bin",
-          flutterSdkPath = "/Users/ale/fvm/default/bin/flutter",
+          dartSdkPath = dask_sdk_path,
+          flutterSdkPath = flutter_sdk_path,
           program = function()
             return vim.fn.input("Program: ", "lib/main.dart")
           end,
@@ -56,8 +57,8 @@ return {
           type = "flutter",
           request = "launch",
           name = "Launch flutter with program",
-          dartSdkPath = "/opt/flutter/bin/cache/dart-sdk/bin/dart",
-          flutterSdkPath = "/opt/flutter/bin/flutter",
+          dartSdkPath = dask_sdk_path,
+          flutterSdkPath = flutter_sdk_path,
           program = function()
             return vim.fn.input("Program: ", "lib/main.dart")
           end,

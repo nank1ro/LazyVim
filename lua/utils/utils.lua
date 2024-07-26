@@ -25,7 +25,8 @@ end
 
 -- Returns the flutter sdk path
 function M.flutter_sdk_path()
-  return vim.fn.system("which flutter | tr -d '\n'")
+  local flutter_sdk_path = vim.fn.resolve(vim.fn.exepath("flutter"))
+  return vim.fn.fnamemodify(flutter_sdk_path, ":h:h")
 end
 
 local function _flutter_sdk_dart_bin(flutter_sdk)

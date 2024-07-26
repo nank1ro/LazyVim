@@ -5,3 +5,5 @@ vim.api.nvim_create_user_command("DeleteComments", function()
   vim.cmd([[%s/\/\/.*//]])
   vim.cmd("write")
 end, {})
+
+vim.opt.spelllang = { "en", "it" }
