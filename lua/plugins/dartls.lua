@@ -14,7 +14,7 @@ return {
             showTodos = true,
             analysisExcludedFolders = {
               path.join(flutter_sdk_path, "packages"),
-              path.join(flutter_sdk_path, ".pub-cache"),
+              path.join(utils.home_path, ".pub-cache"),
             },
             updateImportsOnRename = true,
           },
