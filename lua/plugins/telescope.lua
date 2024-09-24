@@ -10,4 +10,18 @@ return {
       desc = "Workspace Diagnostics",
     },
   },
+  opts = {
+    defaults = {
+      mappings = {
+        i = {
+          ["<S-Down>"] = function(...)
+            require("telescope.actions").cycle_history_next(...)
+          end,
+          ["<S-Up>"] = function(...)
+            require("telescope.actions").cycle_history_prev(...)
+          end,
+        },
+      },
+    },
+  },
 }
