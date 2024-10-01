@@ -7,3 +7,4 @@ vim.api.nvim_create_user_command("DeleteComments", function()
 end, {})
 
 vim.opt.spelllang = { "en", "it" }
+vim.o.undofile = false
