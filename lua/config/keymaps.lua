@@ -4,7 +4,7 @@
 local map = vim.keymap.set
 
 local lazyterm = function()
-  LazyVim.terminal(nil, { cwd = LazyVim.root() })
+  Snacks.terminal.toggle(nil, { cwd = LazyVim.root() })
 end
 
 map({ "i", "x", "n", "s" }, "<Char-0xAA>", "<cmd>w<cr><esc>", { desc = "Save File" })
