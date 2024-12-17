@@ -3,6 +3,7 @@
     "lazyvim.plugins.extras.ai.copilot",
     "lazyvim.plugins.extras.coding.luasnip",
     "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.lang.astro",
     "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.json",
@@ -14,7 +15,7 @@
     "lazyvim.plugins.extras.lang.yaml"
   ],
   "news": {
-    "NEWS.md": "7429"
+    "NEWS.md": "10960"
   },
   "version": 7
 }

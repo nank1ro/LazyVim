@@ -6,4 +6,10 @@ return {
     "mfussenegger/nvim-lint",
     enabled = false,
   },
+  {
+    "snacks.nvim",
+    opts = {
+      scroll = { enabled = false },
+    },
+  },
 }
