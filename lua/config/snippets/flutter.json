@@ -16,7 +16,7 @@
     "prefix": "statefulW",
     "body": [
       "class ${1:name} extends StatefulWidget {",
-      "  ${1:name}({super.key});\n",
+      "  const ${1:name}({super.key});\n",
       "  @override",
       "  State<${1:index}> createState() => _${1:WidgetName}State();",
       "}\n",
