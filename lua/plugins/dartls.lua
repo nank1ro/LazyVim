@@ -30,6 +30,10 @@ return {
       local flutter_sdk = utils.flutter_sdk_path()
       local flutter_sdk_path = path.join(flutter_sdk, "bin/flutter")
       local dask_sdk_path = path.join(flutter_sdk, "bin/cache/dart-sdk/bin")
+      local input_data = {
+        program = nil,
+        cwd = nil,
+      }
 
       dap.adapters.dart = {
         type = "executable",
@@ -48,10 +52,18 @@ return {
           name = "Launch dart",
           dartSdkPath = dask_sdk_path,
           flutterSdkPath = flutter_sdk_path,
-          program = function()
-            return vim.fn.input("Program: ", "lib/main.dart")
+          cwd = function()
+            if not input_data.cwd then
+              input_data.cwd = vim.fn.input("CWD: ", vim.fn.getcwd()) -- Default to current dir
+            end
+            return input_data.cwd
           end,
-          cwd = "${workspaceFolder}",
+          program = function()
+            if not input_data.program then
+              input_data.program = vim.fn.input("Program: ", "lib/main.dart")
+            end
+            return input_data.program
+          end,
         },
         {
           type = "flutter",
@@ -59,10 +71,18 @@ return {
           name = "Launch flutter with program",
           dartSdkPath = dask_sdk_path,
           flutterSdkPath = flutter_sdk_path,
-          program = function()
-            return vim.fn.input("Program: ", "lib/main.dart")
+          cwd = function()
+            if not input_data.cwd then
+              input_data.cwd = vim.fn.input("CWD: ", vim.fn.getcwd()) -- Default to current dir
+            end
+            return input_data.cwd
           end,
-          cwd = "${workspaceFolder}",
+          program = function()
+            if not input_data.program then
+              input_data.program = vim.fn.input("Program: ", "lib/main.dart")
+            end
+            return input_data.program
+          end,
         },
       }
     end,
