@@ -10,3 +10,4 @@ vim.opt.spelllang = { "en", "it" }
 vim.o.undofile = false
 vim.opt.relativenumber = false
 vim.opt.swapfile = false
+vim.opt.wrap = true
